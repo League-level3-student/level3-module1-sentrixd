@@ -13,6 +13,7 @@ package _01_IntroToArrayLists;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class _03_MurderOfCrows {
@@ -30,7 +31,25 @@ public class _03_MurderOfCrows {
          * 1. One of the Crows has eaten the diamond. You need to search through the stomach of each Crow, 
          * then print the name of the guilty Crow.
          */
-        
+    	int crowsDead = 0;
+    	boolean found = false;
+    	
+    	for (Crow g : theMurder) {
+    		ArrayList<String> contents = g.getStomachContents();
+    		
+    		for (String c: contents) {
+    			if (c.equals("diamond")) {
+    				System.out.println(crowsDead + " were killed before we found the one with the diamond!");
+    				found = true;
+    			}
+    		}
+    		
+    		if (found) {
+    			break;
+    		}
+    		
+    		crowsDead++;
+		}
         /* 2. How many innocent crows had to die before the diamond was found? */
     	
     }
