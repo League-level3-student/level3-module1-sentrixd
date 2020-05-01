@@ -47,10 +47,19 @@ public class _02_TextUndoRedo implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent ke) {
-		if (ke.equals(KeyEvent.VK_BACK_SPACE))
+		int key = ke.getKeyCode();
 		
-		label.setText(label.getText() + ke.getKeyChar());
-		System.out.println(ke.getKeyChar() + " ");
+		if (key == KeyEvent.VK_BACK_SPACE) {
+			// Make sure that the text isn't blank
+			if (label.getText() != "" || label.getText() != null) {
+				String text = label.getText().substring(0, label.getText().length() - 1); 
+				
+				label.setText(text);
+			}
+		} else {
+			label.setText(label.getText() + ke.getKeyChar());
+			System.out.println(ke.getKeyChar() + " ");
+		}
 		
 		frame.pack();
 	}
