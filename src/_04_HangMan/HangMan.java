@@ -40,7 +40,7 @@ public class HangMan implements KeyListener {
 		
 		words = new Stack<String>();
 		
-		String input1 = JOptionPane.showInputDialog("Hangman: How many words would you like to guess? Please select a number below " + wordsInDictionary + "! (Note: when you make sure to press enter after you are done)");
+		String input1 = JOptionPane.showInputDialog("Hangman: How many words would you like to guess? Please select a number below " + wordsInDictionary + "!");
 		int convertedInput1 = Integer.parseInt(input1);
 		
 		for (int i = 0; i < convertedInput1; i ++) {
@@ -146,7 +146,6 @@ public class HangMan implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent ke) {
-		checkIfWon();
 		char keyChar = ke.getKeyChar();
 		boolean found = false;
 		
@@ -169,6 +168,7 @@ public class HangMan implements KeyListener {
 		label.setText(makeStringFromCharArray(characters));
 		frame.pack();
 		
+		checkIfWon();
 		
 		//if (keyChar == charAtIndex) { 
 		//	System.out.println("yes");
